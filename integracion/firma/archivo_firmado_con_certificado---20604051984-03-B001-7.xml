@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ext:UBLExtensions>
+                    <ext:UBLExtension>
+                        <ext:ExtensionContent><ds:Signature>
+  <ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+    <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+  <ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>+SGisWucEjaeBLIGWgRVyfRdMiU=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>mLS5lecoMfCNoWJMGSkHyqnBj1FRnM52vXo6W9Qp609rZa4gXPsZZP7pMjhD2BX+ANxSKawCiMJzWpWrlulkEV9lCO6VeMB3hFgsdFttOhcUXAX6Apz8rwr3NTQ+RuJ3zThD6JTUwBTNrTJf1rbDRhGKbieaX2PRB8cm1v0Eq4fVjgYuhW68k6pEgQdEzX5scDCxt8NsXP5Ov1Gi5zUVEm1XxTTR9e02ynym3X0QUz6CwOqpAP4U5mntT7AZOMUCXbANiOYQ/XZFOIyzs+2KD0DplFcmH2wCNJ+xGuvhLjGS+1w6cYo0ikO6ZCr3+K4t0a1OKiS/JOxuZlo38ddVYw==</ds:SignatureValue>
+<ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIFBzCCA++gAwIBAgIINYpIA0vfZDMwDQYJKoZIhvcNAQELBQAwggENMRswGQYKCZImiZPyLGQBGRYLTExBTUEuUEUgU0ExCzAJBgNVBAYTAlBFMQ0wCwYDVQQIDARMSU1BMQ0wCwYDVQQHDARMSU1BMRgwFgYDVQQKDA9UVSBFTVBSRVNBIFMuQS4xRTBDBgNVBAsMPEROSSA5OTk5OTk5IFJVQyAyMDYwNDA1MTk4NCAtIENFUlRJRklDQURPIFBBUkEgREVNT1NUUkFDScOTTjFEMEIGA1UEAww7Tk9NQlJFIFJFUFJFU0VOVEFOVEUgTEVHQUwgLSBDRVJUSUZJQ0FETyBQQVJBIERFTU9TVFJBQ0nDk04xHDAaBgkqhkiG9w0BCQEWDWRlbW9AbGxhbWEucGUwHhcNMjMwNDAyMDIzMjM4WhcNMjUwNDAxMDIzMjM4WjCCAQ0xGzAZBgoJkiaJk/IsZAEZFgtMTEFNQS5QRSBTQTELMAkGA1UEBhMCUEUxDTALBgNVBAgMBExJTUExDTALBgNVBAcMBExJTUExGDAWBgNVBAoMD1RVIEVNUFJFU0EgUy5BLjFFMEMGA1UECww8RE5JIDk5OTk5OTkgUlVDIDIwNjA0MDUxOTg0IC0gQ0VSVElGSUNBRE8gUEFSQSBERU1PU1RSQUNJw5NOMUQwQgYDVQQDDDtOT01CUkUgUkVQUkVTRU5UQU5URSBMRUdBTCAtIENFUlRJRklDQURPIFBBUkEgREVNT1NUUkFDScOTTjEcMBoGCSqGSIb3DQEJARYNZGVtb0BsbGFtYS5wZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMQRS6+HNPpbmbLt8SA9S8WrkeFs8Q0lM1aFIxABOSfnUoHHObF3zxoPOAlG7Arl8Mlatd7RYi+pEMU19UF7u20dwL/Ck/NIOMURPXeDBshsMpKQaDe/gOlB8BRyvxLa8OL3+zxr9Q4NPBlLkjM8Rvba4xMIBj1QVH11604ikISm9qEtEjp2qLdmG03vWh1nobdqbafSjYtX3fLJQNbIqLSc0yXne0n475oMi7NbRwaewQwDi+ne2OhM7yuxjzIq9lVJg6T7hmeQmPhlmh4mTS277uY8EwhfaQX1dfrwolS5XQ97KP6iuTr36X1rBRSwsHHlcm+6W2aRrxMMTu/ERLECAwEAAaNnMGUwHQYDVR0OBBYEFK+JBT7TJA2B0UxCAJo1/V9kos9YMB8GA1UdIwQYMBaAFK+JBT7TJA2B0UxCAJo1/V9kos9YMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA4GA1UdDwEB/wQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEAAmNPMw9ESYr2kUxoGv6TIUFGu0Y4BmHNB56O9yZJK4sSSQLr9sXUjlr012kLBmvssMKnz6456lA2chjwscJNs4JaHodKchRpFhxcnvPltCgnNahtXxN7I/eSDOZ2FJzpXfCM1kaMXbdMedy9hA25mPBiC9qHsAtkf4gdwZHob55U4cYGwK7gyYjbnSZCoQgYi1wbqZfbC3dp5qnYZzdc+8xQUaY/p3vPJiYONDY0EU6pEdhu67o0WFCxJDCoPNuF9NmqYLOTORjOUeMNb4nt/OFm7j2x6BH3ReAM1xzeciE4OCpZhdY6YGMef/awmXE3Ve9F8VgMP9a6Iwf8EqEO4A==</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature></ext:ExtensionContent>
+                    </ext:UBLExtension>
+                </ext:UBLExtensions>
+                <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+                <cbc:CustomizationID>2.0</cbc:CustomizationID>
+                <cbc:ID>B001-7</cbc:ID>
+                <cbc:IssueDate>2022-03-14</cbc:IssueDate>
+                <cbc:IssueTime>11:42:38</cbc:IssueTime><cbc:InvoiceTypeCode listID="0101" listAgencyName="PE:SUNAT" listName="Tipo de Documento" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo01" name="Tipo de Operacion" listSchemeURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo51">03</cbc:InvoiceTypeCode><cbc:Note languageLocaleID="1000">Trescientos cincuenta y nueve con 00/100 soles</cbc:Note>
+            <cbc:DocumentCurrencyCode listID="ISO 4217 Alpha" listName="Currency" listAgencyName="United Nations Economic Commission for Europe">PEN</cbc:DocumentCurrencyCode><cac:Signature>
+            <cbc:ID>20604051984</cbc:ID>
+            <cac:SignatoryParty>
+                <cac:PartyIdentification>
+                    <cbc:ID>20604051984</cbc:ID>
+                </cac:PartyIdentification>
+                <cac:PartyName>
+                    <cbc:Name><![CDATA[FACTURACION ELECTRÓNICA MONSTRUO E.I.R.L.]]></cbc:Name>
+                </cac:PartyName>
+            </cac:SignatoryParty>
+            <cac:DigitalSignatureAttachment>
+                <cac:ExternalReference>
+                    <cbc:URI>20604051984</cbc:URI>
+                </cac:ExternalReference>
+            </cac:DigitalSignatureAttachment>
+        </cac:Signature>                        
+        <cac:AccountingSupplierParty>
+            <cac:Party>
+                <cac:PartyIdentification>
+                    <cbc:ID schemeID="6">20604051984</cbc:ID>
+                </cac:PartyIdentification>
+                <cac:PartyName>
+                    <cbc:Name><![CDATA[FACTURACION ELECTRÓNICA]]></cbc:Name>                                    
+                </cac:PartyName>
+                <cac:PartyLegalEntity>
+                    <cbc:RegistrationName><![CDATA[FACTURACION ELECTRÓNICA MONSTRUO E.I.R.L.]]></cbc:RegistrationName>
+                    <cac:RegistrationAddress>
+                        <cbc:ID schemeName="Ubigeos" schemeAgencyName="PE:INEI">150141</cbc:ID>
+                        <cbc:AddressTypeCode listAgencyName="PE:SUNAT" listName="Establecimientos anexos">0000</cbc:AddressTypeCode>
+                        <cbc:CityName>Lima</cbc:CityName>
+                        <cbc:CountrySubentity>Lima</cbc:CountrySubentity>
+                        <cbc:District>Surquillo</cbc:District>
+                        <cac:AddressLine>
+                            <cbc:Line>AV. MORALES DUARES 1245</cbc:Line>
+                        </cac:AddressLine>
+                        <cac:Country>
+                            <cbc:IdentificationCode listID="ISO 3166-1" listAgencyName="United Nations Economic Commission for Europe" listName="Country">PE</cbc:IdentificationCode>
+                        </cac:Country>
+                    </cac:RegistrationAddress>
+                </cac:PartyLegalEntity>
+            </cac:Party>
+        </cac:AccountingSupplierParty>                        
+        <cac:AccountingCustomerParty>
+            <cac:Party>
+                <cac:PartyIdentification>
+                    <cbc:ID schemeID="1" schemeName="Documento de Identidad" schemeAgencyName="PE:SUNAT" schemeURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo06">00000000</cbc:ID>
+                </cac:PartyIdentification>
+                <cac:PartyLegalEntity>
+                    <cbc:RegistrationName><![CDATA[CLIENTES VARIOS]]></cbc:RegistrationName>
+                </cac:PartyLegalEntity>
+            </cac:Party>
+        </cac:AccountingCustomerParty><cac:PaymentTerms>
+                    <cbc:ID>FormaPago</cbc:ID>
+                    <cbc:PaymentMeansID>Contado</cbc:PaymentMeansID>
+                </cac:PaymentTerms><cac:PaymentTerms>
+                    <cbc:ID>FormaPago</cbc:ID>
+                    <cbc:PaymentMeansID>Credito</cbc:PaymentMeansID>
+                    <cbc:Amount currencyID="PEN">359.00</cbc:Amount>
+                </cac:PaymentTerms><cac:TaxTotal>
+                <cbc:TaxAmount currencyID="PEN">54.76</cbc:TaxAmount><cac:TaxSubtotal>
+                    <cbc:TaxableAmount currencyID="PEN">304.24</cbc:TaxableAmount>
+                    <cbc:TaxAmount currencyID="PEN">54.76</cbc:TaxAmount>
+                    <cac:TaxCategory>
+                        <cac:TaxScheme>
+                            <cbc:ID schemeName="Codigo de tributos" schemeAgencyName="PE:SUNAT" schemeURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo05">1000</cbc:ID>
+                            <cbc:Name>IGV</cbc:Name>
+                            <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+                        </cac:TaxScheme>
+                    </cac:TaxCategory>
+                </cac:TaxSubtotal></cac:TaxTotal><cac:LegalMonetaryTotal>                                
+                <cbc:LineExtensionAmount currencyID="PEN">304.24</cbc:LineExtensionAmount>
+                <cbc:TaxInclusiveAmount currencyID="PEN">359.00</cbc:TaxInclusiveAmount>
+                <cbc:AllowanceTotalAmount currencyID="PEN">0.00</cbc:AllowanceTotalAmount>
+                <cbc:ChargeTotalAmount currencyID="PEN">0.00</cbc:ChargeTotalAmount>
+                <cbc:PrepaidAmount currencyID="PEN">0.00</cbc:PrepaidAmount>
+                <cbc:PayableAmount currencyID="PEN">359.00</cbc:PayableAmount>
+            </cac:LegalMonetaryTotal><cac:InvoiceLine>
+                <cbc:ID>1</cbc:ID>
+                <cbc:InvoicedQuantity unitCode="NIU">2.00</cbc:InvoicedQuantity>
+                <cbc:LineExtensionAmount currencyID="PEN">135.59</cbc:LineExtensionAmount>
+                <cac:PricingReference>
+                    <cac:AlternativeConditionPrice>
+                        <cbc:PriceAmount currencyID="PEN">80</cbc:PriceAmount>
+                        <cbc:PriceTypeCode listName="Tipo de Precio" listAgencyName="PE:SUNAT" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo16">01</cbc:PriceTypeCode>
+                    </cac:AlternativeConditionPrice>
+                </cac:PricingReference><cac:TaxTotal>
+                        <cbc:TaxAmount currencyID="PEN">24.41</cbc:TaxAmount>                                                
+                        <cac:TaxSubtotal>
+                            <cbc:TaxableAmount currencyID="PEN">135.59</cbc:TaxableAmount>
+                            <cbc:TaxAmount currencyID="PEN">24.41</cbc:TaxAmount>
+                            <cac:TaxCategory>
+                                <cbc:Percent>18</cbc:Percent>
+                                <cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
+                                <cac:TaxScheme>
+                                    <cbc:ID>1000</cbc:ID>                                                    
+                                    <cbc:Name>IGV</cbc:Name>                                                    
+                                    <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+                                </cac:TaxScheme>
+                            </cac:TaxCategory>
+                        </cac:TaxSubtotal></cac:TaxTotal>                                    
+                    <cac:Item>                                    
+                        <cbc:Description><![CDATA[Pollo a la brasa]]></cbc:Description>
+                        <cac:SellersItemIdentification>
+                            <cbc:ID>C00-2</cbc:ID>
+                        </cac:SellersItemIdentification>
+                        <cac:CommodityClassification>                                        
+                            <cbc:ItemClassificationCode>-</cbc:ItemClassificationCode>
+                        </cac:CommodityClassification>
+                    </cac:Item>
+                    <cac:Price>
+                        <cbc:PriceAmount currencyID="PEN">67.79661</cbc:PriceAmount>
+                    </cac:Price>
+            </cac:InvoiceLine>
+            <cac:InvoiceLine>
+                <cbc:ID>2</cbc:ID>
+                <cbc:InvoicedQuantity unitCode="NIU">5.00</cbc:InvoicedQuantity>
+                <cbc:LineExtensionAmount currencyID="PEN">50.00</cbc:LineExtensionAmount>
+                <cac:PricingReference>
+                    <cac:AlternativeConditionPrice>
+                        <cbc:PriceAmount currencyID="PEN">11.8</cbc:PriceAmount>
+                        <cbc:PriceTypeCode listName="Tipo de Precio" listAgencyName="PE:SUNAT" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo16">01</cbc:PriceTypeCode>
+                    </cac:AlternativeConditionPrice>
+                </cac:PricingReference><cac:TaxTotal>
+                        <cbc:TaxAmount currencyID="PEN">9.00</cbc:TaxAmount>                                                
+                        <cac:TaxSubtotal>
+                            <cbc:TaxableAmount currencyID="PEN">50.00</cbc:TaxableAmount>
+                            <cbc:TaxAmount currencyID="PEN">9.00</cbc:TaxAmount>
+                            <cac:TaxCategory>
+                                <cbc:Percent>18</cbc:Percent>
+                                <cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
+                                <cac:TaxScheme>
+                                    <cbc:ID>1000</cbc:ID>                                                    
+                                    <cbc:Name>IGV</cbc:Name>                                                    
+                                    <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+                                </cac:TaxScheme>
+                            </cac:TaxCategory>
+                        </cac:TaxSubtotal></cac:TaxTotal>                                    
+                    <cac:Item>                                    
+                        <cbc:Description><![CDATA[Pollo crudo]]></cbc:Description>
+                        <cac:SellersItemIdentification>
+                            <cbc:ID>C00-3</cbc:ID>
+                        </cac:SellersItemIdentification>
+                        <cac:CommodityClassification>                                        
+                            <cbc:ItemClassificationCode>-</cbc:ItemClassificationCode>
+                        </cac:CommodityClassification>
+                    </cac:Item>
+                    <cac:Price>
+                        <cbc:PriceAmount currencyID="PEN">10</cbc:PriceAmount>
+                    </cac:Price>
+            </cac:InvoiceLine>
+            <cac:InvoiceLine>
+                <cbc:ID>3</cbc:ID>
+                <cbc:InvoicedQuantity unitCode="NIU">7.00</cbc:InvoicedQuantity>
+                <cbc:LineExtensionAmount currencyID="PEN">118.64</cbc:LineExtensionAmount>
+                <cac:PricingReference>
+                    <cac:AlternativeConditionPrice>
+                        <cbc:PriceAmount currencyID="PEN">20</cbc:PriceAmount>
+                        <cbc:PriceTypeCode listName="Tipo de Precio" listAgencyName="PE:SUNAT" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo16">01</cbc:PriceTypeCode>
+                    </cac:AlternativeConditionPrice>
+                </cac:PricingReference><cac:TaxTotal>
+                        <cbc:TaxAmount currencyID="PEN">21.36</cbc:TaxAmount>                                                
+                        <cac:TaxSubtotal>
+                            <cbc:TaxableAmount currencyID="PEN">118.64</cbc:TaxableAmount>
+                            <cbc:TaxAmount currencyID="PEN">21.36</cbc:TaxAmount>
+                            <cac:TaxCategory>
+                                <cbc:Percent>18</cbc:Percent>
+                                <cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
+                                <cac:TaxScheme>
+                                    <cbc:ID>1000</cbc:ID>                                                    
+                                    <cbc:Name>IGV</cbc:Name>                                                    
+                                    <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+                                </cac:TaxScheme>
+                            </cac:TaxCategory>
+                        </cac:TaxSubtotal></cac:TaxTotal>                                    
+                    <cac:Item>                                    
+                        <cbc:Description><![CDATA[Pollo frito]]></cbc:Description>
+                        <cac:SellersItemIdentification>
+                            <cbc:ID>C00-1</cbc:ID>
+                        </cac:SellersItemIdentification>
+                        <cac:CommodityClassification>                                        
+                            <cbc:ItemClassificationCode>-</cbc:ItemClassificationCode>
+                        </cac:CommodityClassification>
+                    </cac:Item>
+                    <cac:Price>
+                        <cbc:PriceAmount currencyID="PEN">16.949153</cbc:PriceAmount>
+                    </cac:Price>
+            </cac:InvoiceLine>
+            </Invoice>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VoidedDocuments xmlns="urn:sunat:names:specification:ubl:peru:schema:xsd:VoidedDocuments-1" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ext:UBLExtensions>
+    <ext:UBLExtension>
+      <ext:ExtensionContent>
+        <ds:Signature Id="NubeFacTSign">
+          <ds:SignedInfo>
+            <ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+            <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+            <ds:Reference URI="">
+              <ds:Transforms>
+                <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+              </ds:Transforms>
+              <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+              <ds:DigestValue>ArPWmUjEcFTjm65IAhOFIvXVn7Y=</ds:DigestValue>
+            </ds:Reference>
+          </ds:SignedInfo>
+          <ds:SignatureValue>FtlzkAfjZdSe/Nu+/Zuo2ZgHtPW8oOf+0jG4LykmnRrCAbOkC/DHNtcCGCdHWVHk+vEg74lN5PKWdb91bVNo0nkYXrEAKasZciIrlqTDLPX/7ozmxqFpW958ZnlLQzLk+N/Y4WPKt4jzqoRZpRN5LbIJucYf+MXwm+CSSxGPJJ1csN+EbmXa0Dscyr5vTj8ImMMZCdNYaHAlxZo//A7o47uz2BV68J1wQ2KfdOpiQYk0FQDnIewclUDPrP3pOyCpAfEW2w/3XNDWAWNfRN/YezNkQgM1aux6mT6iT84roGIo/a6576F+DEfbodatI3GplL+ecSYXXqtf4oxa/CvfZQ==</ds:SignatureValue>
+          <ds:KeyInfo>
+            <ds:X509Data>
+              <ds:X509SubjectName>street=CAL. MARTIR JOSE OLAYA NRO. 129 INT. 903,emailAddress=sistemas@nubefact.com,CN=PFEIFFER PALOMINO GINGER KARIN,serialNumber=45604431,OU=20600695771,O=NUBEFACT S.A.,L=LIMA,C=PE</ds:X509SubjectName>
+              <ds:X509Certificate>MIIFAzCCA+ugAwIBAgIIeDn5gKMJli8wDQYJKoZIhvcNAQELBQAwRjEkMCIGA1UE
+AwwbTGxhbWEucGUgU0hBMjU2IFN0YW5kYXJkIENBMREwDwYDVQQKDAhMTEFNQS5Q
+RTELMAkGA1UEBhMCUEUwHhcNMTkwNTI4MjExNDA3WhcNMjAwNTI3MjExNDA3WjCB
+3zExMC8GA1UECQwoQ0FMLiBNQVJUSVIgSk9TRSBPTEFZQSBOUk8uIDEyOSBJTlQu
+IDkwMzEkMCIGCSqGSIb3DQEJARYVc2lzdGVtYXNAbnViZWZhY3QuY29tMScwJQYD
+VQQDDB5QRkVJRkZFUiBQQUxPTUlOTyBHSU5HRVIgS0FSSU4xETAPBgNVBAUTCDQ1
+NjA0NDMxMRQwEgYDVQQLDAsyMDYwMDY5NTc3MTEWMBQGA1UECgwNTlVCRUZBQ1Qg
+Uy5BLjENMAsGA1UEBwwETElNQTELMAkGA1UEBhMCUEUwggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQDbaLxBX1TcEY2KjrsFb3eaTyNbijVdPje8OfbzaCVe
+/eIi10e7hDFNiTqcFz70vC14u5JEagrBXc+JR7uh+EobGQlUZmavk0mTNgMSptI+
+yOGsArvAbFzuwJkktiUmHe5jgMIwLfL4cu6eEduEhqgumDSi1LBOiQxf91oJkDXr
+AV31UUqCIP5kN9CcOb1VE7wLGDBCGnXX0iA7qo8bPTte4VJe+22PPke9dg5smNXo
+40p+Wj85SyaznkJgtsvFawU0p6gvfw62jv8MHpFlH7x3zFG5IT7sMFae6jLSIY8b
+g0IoeQUxYMLfCty+6UOWcrspBtwH9dPEL8vbS7V/Q1m9AgMBAAGjggFZMIIBVTAM
+BgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFF2IW63rZfv+aKLk2W89V3Ki7yuZMDAG
+CCsGAQUFBwEBBCQwIjAgBggrBgEFBQcwAYYUaHR0cDovL29jc3AubGxhbWEucGUw
+IAYDVR0RBBkwF4EVc2lzdGVtYXNAbnViZWZhY3QuY29tMEYGA1UdIAQ/MD0wOwYN
+KwYBBAGDl3cAAQACATAqMCgGCCsGAQUFBwIBFhxodHRwczovL2xsYW1hLnBlL3Jl
+cG9zaXRvcnkvMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDA6BgNVHR8E
+MzAxMC+gLaArhilodHRwOi8vY3JsLmxsYW1hLnBlL2xsYW1hcGVzdGFuZGFyZGNh
+LmNybDAdBgNVHQ4EFgQUhKMmNSCr8lryFGyjYpI1TlwVuncwDgYDVR0PAQH/BAQD
+AgbAMA0GCSqGSIb3DQEBCwUAA4IBAQCIHPQXzAxvQvNW8Mv6msmZFSVRAbsx2K1r
+KEfE1hel7VALfAYhlk5Dv7Ttwml0Nc+Mp8aZi/Vf2/lQilovlFBnh+bdxGDWiYNz
+ZNG6Wf8LixyqM8znkt6LelMoCxijdpNKjRMBxrLRLZLRNQFIqsYRn7cfZm1K0xWy
+DAeRXEmF85o1qu3WUZh96fv4bmfr42dIqWiKsMssfrHwUGDulzXosw9t0m8ZzuOR
+V6xLZWmagEN4G6Qnx5FhdMCcVDTDFbjHLn/EC8Gz2l7Tl0xqEWOjrEfTIy0nl+Zg
+3kE4iBdByD4j2LU2QmppFpdGzK/MUEgbKWYs9kHKRG2fYplWtHaR</ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </ds:Signature>
+      </ext:ExtensionContent>
+    </ext:UBLExtension>
+  </ext:UBLExtensions>
+  <cbc:UBLVersionID>2.0</cbc:UBLVersionID>
+  <cbc:CustomizationID>1.0</cbc:CustomizationID>
+  <cbc:ID>RA-20191116-1</cbc:ID>
+  <cbc:ReferenceDate>2019-11-14</cbc:ReferenceDate>
+  <cbc:IssueDate>2019-11-16</cbc:IssueDate>
+  <cac:Signature>
+    <cbc:ID>20600397941</cbc:ID>
+    <cac:SignatoryParty>
+      <cac:PartyIdentification>
+        <cbc:ID>20600397941</cbc:ID>
+      </cac:PartyIdentification>
+      <cac:PartyName>
+        <cbc:Name>NUBECONT S.A. </cbc:Name>
+      </cac:PartyName>
+    </cac:SignatoryParty>
+    <cac:DigitalSignatureAttachment>
+      <cac:ExternalReference>
+        <cbc:URI>20600397941</cbc:URI>
+      </cac:ExternalReference>
+    </cac:DigitalSignatureAttachment>
+  </cac:Signature>
+  <cac:AccountingSupplierParty>
+    <cbc:CustomerAssignedAccountID>20600397941</cbc:CustomerAssignedAccountID>
+    <cbc:AdditionalAccountID>6</cbc:AdditionalAccountID>
+    <cac:Party>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName>NUBECONT S.A. </cbc:RegistrationName>
+      </cac:PartyLegalEntity>
+    </cac:Party>
+  </cac:AccountingSupplierParty>
+  <sac:VoidedDocumentsLine>
+    <cbc:LineID>1</cbc:LineID>
+    <cbc:DocumentTypeCode>01</cbc:DocumentTypeCode>
+    <sac:DocumentSerialID>F001</sac:DocumentSerialID>
+    <sac:DocumentNumberID>22</sac:DocumentNumberID>
+    <sac:VoidReasonDescription>Anulacion de la Operacion </sac:VoidReasonDescription>
+  </sac:VoidedDocumentsLine>
+</VoidedDocuments>

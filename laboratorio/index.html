@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css"/>
+        <link rel='stylesheet' href="assets/jquery/themes-smoothness-jquery-ui.css"/>
+        
+        <script src='assets/jquery/jquery-2.2.4.min.js'></script>
+        <script src='assets/jquery/jquery-ui-1.11.0.js'></script>
+        
+        <style>
+            .accion_fila{
+                padding-bottom: 10px;
+            }
+        </style>        
+    </head>    
+    <body>
+        <h2 align='center'>Laboratorio Integración SUNAT</h2>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-sm-3 col-md-3 col-lg-3">
+                    <label>Empresa:</label>
+                    <input type="text" id="ruc" class="form-control input-sm" placeholder="RUC" value="20604051984"/>
+                    <input type="text" id="razon_social" class="form-control input-sm" placeholder="Razon Social" value="FACTURACION ELECTRONICA MONSTRUO E.I.R.L."/>
+                    <input type="text" id="nombre_comercial" class="form-control input-sm" placeholder="Nombre comercial" value="FACTURACION ELECTRONICA"/>
+                    <input type="text" id="domicilio_fiscal" class="form-control input-sm" placeholder="Domicilio fiscal" value="Av. Petit Thouars 1306"/>
+                    <select class="form-control" id="departamento">
+                    </select>
+                    <select class="form-control" id="provincia">
+                    </select>
+                    <select class="form-control" id="distrito">
+                    </select>
+                </div>
+                <div class="col-xl-3 col-sm-3 col-md-3 col-lg-3">
+                    <label>Cliente:</label>
+                    <select id="tipo_cliente" class="form-control">
+                        <option value="1">DNI</option>
+                        <option value="6">RUC</option>                        
+                    </select>
+                    
+                    <input type="text" id="razon_social_nombres" class="form-control input-sm" placeholder="Razon social - Nombres" value="Juan Perez"/>
+                    <input type="text" id="numero_documento" class="form-control input-sm" placeholder="Número documento" value="00000000"/>
+                </div>
+                <div class="col-xl-3 col-sm-3 col-md-3 col-lg-3">
+                    <label>Venta:</label>                    
+                    <select id="tipo_documento_codigo" class="form-control">
+                        <option value="03">Boleta</option>
+                        <option value="01">Factura</option>                        
+                    </select>
+                    
+                    <input type="text" id="serie" class="form-control input-sm" placeholder="Serie" value="B001"/>
+                    <input type="text" id="numero" class="form-control input-sm" placeholder="Número"/>
+                </div>
+                <div class="col-xl-3 col-sm-3 col-md-3 col-lg-3">
+                    <label>Producto:</label>
+                    <input type="text" id="producto" class="form-control input-sm" placeholder="Producto" value="Pollo a la Brasa"/>
+                    <input type="text" id="cantidad" class="form-control input-sm" placeholder="Cantidad" value="2"/>
+                    <input type="text" id="precio" class="form-control input-sm" placeholder="Precio" value="50"/>
+                </div>
+            </div>            
+            <br>
+
+            <div class="row accion_fila">
+                <div class="col-xl-3 col-md-3 col-sm-3 col-lg-3">
+                    <a id="btn_crear_xml" class="btn btn-info">Crear XML</a>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-3 col-lg-3" id="div_descargar_xml">
+                    <a id="btn_descargar_xml" class="btn btn-warning">Descargar XML</a>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-6 col-lg-6" id="div_pdf">
+                    <a id="btn_descargar_pdf" class="btn btn-danger">PDF</a>
+                </div>
+            </div>
+
+            <div class="row accion_fila">
+                <div class="col-xl-3 col-md-3 col-sm-3 col-lg-3">
+                    <a id="btn_firmar_xml" class="btn btn-success">firmar XML</a>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-3 col-lg-3" id="div_descargar_xml_firmado">
+                    <a id="btn_descargar_xml_firmado" class="btn btn-warning">Descargar XML Firmado</a>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-6 col-lg-6" id="div_pdf_firma">                    
+                    <a id="btn_descargar_firma" class="btn btn-danger">PDF Firma</a>
+                    <p id="codigo_hash"></p>
+                </div>
+            </div>
+
+            <div class="row accion_fila">
+                <div class="col-xl-3 col-md-3 col-sm-3 col-lg-3">
+                    <a id="btn_enviar_xml" class="btn btn-primary">Enviar a SUNAT</a>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-3 col-lg-3" id="div_descargar_cdr">
+                    <a id="btn_descargar_cdr" class="btn btn-warning">Descargar Respuesta SUNAT (CDR)</a>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-6 col-lg-6" id="div_respuesta">                    
+                    <p id="codigo_respuesta"></p>
+                    <p id="descripcion_respuesta"></p>
+                </div>
+            </div>        
+        </div>
+        
+        <script type="text/javascript">
+            $("#div_descargar_xml").hide();
+            $("#div_descargar_xml_firmado").hide();
+            $("#div_descargar_cdr").hide();
+            
+            $("#div_pdf").hide();
+            $("#div_pdf_firma").hide();
+            $("#div_respuesta").hide();
+            
+            var ip = 'http://localhost/';
+            var ip2 = 'https://facturacionintegral.com/aplicaciones_sistemas/';
+            var ip3 = 'https://facturacionintegral.com/';
+                        
+            var base_ubigeo         = ip + 'monstruo7.0/';
+            var base_url            = ip + 'laboratorio/';
+            var base_url_api        = ip + 'laboratorio/API_SUNAT/xml.php';
+            var name_file           = '';
+            var ruta_XML            = '';
+            var ruta_XML_Firmado    = '';
+            var ruta_pdf            = ip + 'laboratorio/API_SUNAT/pdf.php';
+                        
+            var num = Math.floor(Math.random() * 50000);
+            $("#numero").val(num);
+            
+            var url = base_ubigeo + 'index.php/WS_ubigeos/ws_departamentos';
+            $.getJSON(url)
+            .done(function (data) {
+                (data.departamentos).forEach(function (repo) {
+                    selected = (repo.id == '15') ? 'selected' : '';
+                    $('#departamento').append("<option " + selected + " value='" + repo.id + "'>" + repo.departamento + "</option>");
+                });
+            });
+            
+            var url = base_ubigeo + 'index.php/WS_ubigeos/cargaProvincias/15';
+            $.getJSON(url)
+            .done(function (data) {
+                (data.provincias).forEach(function (repo) {
+                    selected = (repo.id == '1501') ? 'selected' : '';
+                    $('#provincia').append("<option " + selected + " value='" + repo.id + "'>" + repo.provincia + "</option>");
+                });
+            });
+            
+            var url = base_ubigeo + 'index.php/WS_ubigeos/cargaDistritos/1501';
+            $.getJSON(url)
+            .done(function (data) {
+                (data.distritos).forEach(function (repo) {
+                    selected = (repo.id == '150101') ? 'selected' : '';
+                    $('#distrito').append("<option " + selected + " value='" + repo.id + "'>" + repo.distrito + "</option>");
+                });
+            });
+            
+            $("#departamento").on("click", function(){
+                $('#provincia option').remove();
+                $('#distrito option').remove();
+                var departamento_id = $("#departamento").val();
+                var url_provincias = base_ubigeo + 'index.php/WS_ubigeos/cargaProvincias/'+departamento_id;
+                $.getJSON(url_provincias)
+                .done(function (data) {
+                    (data.provincias).forEach(function (repo) {
+                        $('#provincia').append("<option value='" + repo.id + "'>" + repo.provincia + "</option>");
+                    });
+                });        
+            });
+            
+            $("#provincia").on("click", function(){
+                $('#distrito option').remove();
+                var provincia_id = $("#provincia").val();
+                var url_distrito = base_ubigeo + 'index.php/WS_ubigeos/cargaDistritos/'+provincia_id;
+                console.log(url_distrito);
+                $.getJSON(url_distrito)
+                .done(function (data) {
+                    (data.distritos).forEach(function (repo) {
+                        $('#distrito').append("<option value='" + repo.id + "'>" + repo.distrito + "</option>");
+                    });
+                });        
+            });
+                        
+            //API_SUNAT  -   CREAR XML                                    
+            $('#btn_crear_xml').on('click', function(){
+                name_file   = $("#ruc").val() + '-' + $("#tipo_documento_codigo").val() + '-' + $("#serie").val() + '-' + $("#numero").val();
+                ruta_XML    = 'API_SUNAT/files/facturacion_electronica/XML/' + name_file  + '.xml';
+                
+                var data =  {
+                    "empresa":
+                    {
+                        "ruc"               : $("#ruc").val(),
+                        "razon_social"      : $("#razon_social").val(),
+                        "nombre_comercial"  : $("#nombre_comercial").val(),
+                        "domicilio_fiscal"  : $("#domicilio_fiscal").val(),
+                        "ubigeo"            : $("#distrito").val(),
+                        
+                        "departamento"      : $("#departamento option:selected" ).text(),
+                        "provincia"         : $("#provincia option:selected" ).text(),
+                        "distrito"          : $("#distrito option:selected" ).text(),
+                    },
+                    "cliente":
+                    {
+                        "codigo_tipo_entidad"   : $("#tipo_cliente").val(),
+                        "razon_social_nombres"  : $("#razon_social_nombres").val(),
+                        "numero_documento"      : $("#numero_documento").val(),
+                    },
+                    "venta":
+                    {
+                        "tipo_documento_codigo" : $("#tipo_documento_codigo").val(),
+                        "serie"                 : $("#serie").val(),
+                        "numero"                : $("#numero").val(),
+                    },
+                    "items":
+                    [
+                        {
+                            "producto"          : $("#producto").val(),
+                            "cantidad"          : $("#cantidad").val(),
+                            "precio"            : $("#precio").val(),                    
+                        }
+                    ]                    
+                }                
+                
+                var datosJSON = JSON.stringify(data);
+                console.log(datosJSON);
+                $.post(base_url_api,{datosJSON})
+                .done(function(res){
+                    console.log('respuesta....');
+                });
+                                
+                $("#div_pdf").show();
+                $("#div_descargar_xml").show();
+                $("#btn_descargar_xml").attr('href', ruta_XML);
+                $("#btn_descargar_xml").attr('target', '_blank');
+                
+                $("#div_descargar_xml_firmado").hide();
+                $("#div_descargar_cdr").hide();
+
+                $("#div_pdf_firma").hide();
+                $("#div_respuesta").hide();
+                
+                $("#btn_descargar_pdf").attr('target', '_blank');
+            });
+            
+            $('#btn_firmar_xml').on('click', function(){
+                name_file           = $("#ruc").val() + '-' + $("#tipo_documento_codigo").val() + '-' + $("#serie").val() + '-' + $("#numero").val();
+                ruta_XML_Firmado    = 'API_SUNAT/files/facturacion_electronica/FIRMA/' + name_file  + '.xml';
+                
+                var url = base_url + 'API_SUNAT/firma.php?name_file=' + name_file  + '.xml';
+                $.getJSON(url)
+                .done(function (data) {
+                    $("#codigo_hash").text('firma electronica: ' + data[0]);
+                });
+        
+                $("#div_pdf_firma").show();
+                $("#div_descargar_xml_firmado").show();
+                $("#btn_descargar_xml_firmado").attr('href', ruta_XML_Firmado);
+                $("#btn_descargar_xml_firmado").attr('target', '_blank');                                                
+            });
+            
+            $('#btn_enviar_xml').on('click', function(){
+                var ruc_emisor = $("#ruc").val()
+                name_file           = ruc_emisor + '-' + $("#tipo_documento_codigo").val() + '-' + $("#serie").val() + '-' + $("#numero").val();
+                ruta_cdr    = 'API_SUNAT/files/facturacion_electronica/FIRMA/R-' + name_file  + '.xml';
+                
+                var url = base_url + 'API_SUNAT/ws_sunat/index.php?name_file=' + name_file;
+                $.getJSON(url)
+                .done(function (data) {
+                    console.log('datos:'+data.respuesta_sunat_codigo + '---' + data.respuesta_sunat_descripcion);
+                    $("#codigo_respuesta").text('Codigo Respuesta SUNAT: ' + data.respuesta_sunat_codigo);
+                    $("#descripcion_respuesta").text('Descrípción respuesta SUNAT: ' + data.respuesta_sunat_descripcion);
+                });
+
+                $("#div_respuesta").show();
+                $("#div_descargar_cdr").show();
+                $("#btn_descargar_cdr").attr('href', ruta_cdr);
+                $("#btn_descargar_cdr").attr('target', '_blank');
+            });
+            
+            $("#btn_descargar_pdf").on('click', function(){                
+                var data =  {
+                    "empresa":
+                    {
+                        "ruc"               : $("#ruc").val(),
+                        "razon_social"      : $("#razon_social").val(),
+                        "nombre_comercial"  : $("#nombre_comercial").val(),
+                        "domicilio_fiscal"  : $("#domicilio_fiscal").val(),
+                        "ubigeo"            : $("#distrito").val(),
+                        
+                        "departamento"      : $("#departamento option:selected" ).text(),
+                        "provincia"         : $("#provincia option:selected" ).text(),
+                        "distrito"          : $("#distrito option:selected" ).text(),
+                    },
+                    "cliente":
+                    {
+                        "codigo_tipo_entidad"   : $("#tipo_cliente").val(),
+                        "razon_social_nombres"  : $("#razon_social_nombres").val(),
+                        "numero_documento"      : $("#numero_documento").val(),
+                    },
+                    "venta":
+                    {
+                        "tipo_documento_codigo" : $("#tipo_documento_codigo").val(),
+                        "serie"                 : $("#serie").val(),
+                        "numero"                : $("#numero").val(),
+                    },
+                    "items":
+                    [
+                        {
+                            "producto"          : $("#producto").val(),
+                            "cantidad"          : $("#cantidad").val(),
+                            "precio"            : $("#precio").val(),                    
+                        }
+                    ]                    
+                }                
+                
+                var datosJSON = JSON.stringify(data);
+                console.log('hola');
+                $.post('API_SUNAT/pdf.php',{datosJSON})
+                .done(function(res){
+                    let ruta_pdf = 'API_SUNAT/files/pdf/' + $("#ruc").val() + '-' + $("#tipo_documento_codigo").val() + '-' + $("#serie").val() + '-' + $("#numero").val() + '.pdf';
+                    window.open(ruta_pdf, '_blank');
+                });                
+            });
+            
+            $("#btn_descargar_firma").on('click', function(){                
+                var data =  {
+                    "empresa":
+                    {
+                        "ruc"               : $("#ruc").val(),
+                        "razon_social"      : $("#razon_social").val(),
+                        "nombre_comercial"  : $("#nombre_comercial").val(),
+                        "domicilio_fiscal"  : $("#domicilio_fiscal").val(),
+                        "ubigeo"            : $("#distrito").val(),
+                        
+                        "departamento"      : $("#departamento option:selected" ).text(),
+                        "provincia"         : $("#provincia option:selected" ).text(),
+                        "distrito"          : $("#distrito option:selected" ).text(),
+                    },
+                    "cliente":
+                    {
+                        "codigo_tipo_entidad"   : $("#tipo_cliente").val(),
+                        "razon_social_nombres"  : $("#razon_social_nombres").val(),
+                        "numero_documento"      : $("#numero_documento").val(),
+                    },
+                    "venta":
+                    {
+                        "tipo_documento_codigo" : $("#tipo_documento_codigo").val(),
+                        "serie"                 : $("#serie").val(),
+                        "numero"                : $("#numero").val(),
+                    },
+                    "items":
+                    [
+                        {
+                            "producto"          : $("#producto").val(),
+                            "cantidad"          : $("#cantidad").val(),
+                            "precio"            : $("#precio").val(),                    
+                        }
+                    ]                    
+                }                
+                
+                var datosJSON = JSON.stringify(data);
+                console.log('hola');
+                $.post('API_SUNAT/pdf_firma.php',{datosJSON})
+                .done(function(res){
+                    let ruta_pdf = 'API_SUNAT/files/pdf_firma/' + $("#ruc").val() + '-' + $("#tipo_documento_codigo").val() + '-' + $("#serie").val() + '-' + $("#numero").val() + '.pdf';
+                    window.open(ruta_pdf, '_blank');
+                });                
+            });
+        </script>
+        
+        <script  src="assets/bootstrap/bootstrap.min.js"></script>
+    </body>
+</html>

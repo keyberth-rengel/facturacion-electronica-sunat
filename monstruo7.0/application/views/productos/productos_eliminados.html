@@ -1,0 +1,157 @@
+<style>    
+    .derecha_text { 
+        text-align: right; 
+    }
+    .centro_text { 
+        text-align: center; 
+    }
+</style>
+<h2 align="center">Productos Eliminados</h2>
+<br>
+<div class="container">
+    <div class="row-fluid">
+        <div class="col-md-3">
+            <input type="text" class="form-control form-control-sm" id="producto" placeholder="Buscar por producto">
+            <input type="hidden" id="producto_id" />
+        </div>   
+        <div class="col-md-1" >
+            <button class="btn btn-default" type="button" id="btn_buscar_producto"><span class="glyphicon glyphicon-search"></span></button>   
+        </div>        
+    </div>    
+    <br><br>
+    <div class="row-fluid">
+        <table role="grid" style="height: auto;" id="tabla_id" class="table table-bordered table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th>N.</th>
+                    <th>Nombres</th>
+                    <th>Apellidos Paterno</th>
+                    <th>Apellidos Materno</th>
+                    <th>Código</th>
+                    <th>Producto</th>
+                    <th>Fecha y Hora</th>                    
+                </tr>
+            </thead>
+            <tbody role="rowgroup">                
+            </tbody>
+        </table>
+    </div>    
+    <div id='div_contenedor'>
+        <ul id="lista_id_pagination" class="pagination lista_paginacion">
+        </ul>
+    </div>
+</div>
+
+<script src="../../assets/js/monstruo/help.js"></script>
+<script src="../../assets/js/monstruo/config.js"></script>
+
+<script type="text/javascript">
+    var total_filas             = 0;
+    var filas_por_pagina        = 20;
+    var pagina_inicial          = 1;
+    let datos_configuracion     = JSON.parse(localStorage.getItem("datos_configuracion"));
+    var param_stand_url         = datos_configuracion.param_stand_url;
+    
+    $(document).ready(function(){                
+        
+        //PAGINACION
+        $('#div_contenedor').on('click', '.pajaro', function(){            
+            $('li').removeClass('active');
+            $(this).parent().addClass('active');
+                        
+            pagina = $(this).text();
+            $("#tabla_id > tbody").remove();
+
+            var url_l = base_url + 'index.php/WS_productos/productos_eliminados/' + pagina + '/' + filas_por_pagina;
+            //console.log(url_l);
+            $.getJSON(url_l)
+                .done(function (data) {
+                    total_filas = data.total_filas; 
+                    var numero_orden = filas_por_pagina*(pagina-1)+1;
+                    (data.ws_select_productos).forEach(function (repo) {
+                        agregarFila(numero_orden, repo.nombres, repo.apellido_paterno, repo.apellido_materno, repo.producto, repo.codigo, repo.fecha_delete);
+                        numero_orden ++;
+                    });
+            });            
+        });
+        
+        //BUSCAR filtros
+        $('#btn_buscar_producto').on('click', function(){
+            pagina = 1; //
+            param_producto_id = ($('#producto_id').val() == '') ? param_stand_url :  $('#producto_id').val();            
+            $("#tabla_id > tbody").remove();
+
+            var ruta_url = base_url + 'index.php/WS_productos/productos_eliminados/' + pagina + '/' + filas_por_pagina + '/' + param_producto_id;
+            $.getJSON(ruta_url)
+                .done(function (data) {
+                    
+                    carga = 1;//se usa para activar la pagina N. 1
+                    total_filas = data.total_filas;
+                    $("#lista_id_pagination > li").remove();
+                    construir_paginacion(total_filas, filas_por_pagina, carga)
+                    
+                    var numero_orden = filas_por_pagina*(pagina-1)+1;
+                    (data.ws_select_productos).forEach(function (repo) {
+                        agregarFila(numero_orden, repo.nombres, repo.apellido_paterno, repo.apellido_materno, repo.producto, repo.codigo, repo.fecha_delete);
+                        numero_orden ++;
+                    });
+            });
+        });
+    });
+    
+    $('#producto').autocomplete({
+        source: base_url + 'index.php/WS_productos/buscador_eliminados',
+        minLength: 2,
+        select: function (event, ui) {
+            $('#producto_id').val(ui.item.id);
+        }
+    });
+        
+    carga_inicial();
+    
+    function carga_inicial(){
+        //CARGA INICIAL
+        var url_l = base_url + 'index.php/WS_productos/productos_eliminados/' + pagina_inicial + '/' + filas_por_pagina + '/' + param_stand_url;
+        $.getJSON(url_l)
+            .done(function (data) {
+
+                carga = 1;//solo se usa al cargar la página, para activar la pagina N. 1
+                total_filas = data.total_filas;
+                construir_paginacion(total_filas, filas_por_pagina, carga)
+
+                var numero_orden = 1;
+                (data.ws_select_productos).forEach(function (repo) {
+                    //console.log(repo);
+                    agregarFila(numero_orden, repo.nombres, repo.apellido_paterno, repo.apellido_materno, repo.producto, repo.codigo, repo.fecha_delete);
+                    numero_orden ++;
+                });
+        });
+    }
+        
+    var contador_fila = 1;
+    var color = '';
+    function agregarFila(numero_orden, nombres, apellido_paterno, apellido_materno, producto, codigo, fecha_delete){
+        
+        var fila = '<tr ' + color + ' class="seleccionado tabla_fila">';
+        fila += '<td>'+numero_orden+'</td>';
+        fila += '<td>'+nombres+'</td>';
+        fila += '<td>'+apellido_paterno+'</td>';
+        fila += '<td>'+apellido_materno+'</td>';
+        fila += '<td>'+codigo+'</td>';
+        fila += '<td>'+producto+'</td>';        
+        fila += '<td>'+fecha_delete+'</td>';        
+        fila += '</tr>';
+        $("#tabla_id").append(fila);    
+    }                
+    
+    function construir_paginacion(total_filas, filas_por_pagina, carga){
+        paginas = Math.trunc(total_filas / filas_por_pagina);
+        paginas = (total_filas % filas_por_pagina > 0) ? (paginas + 1): paginas;
+        var j = 1;
+        for(i = 0; i < paginas; i++){
+            var activer = ((i == 0) && (carga == 1)) ? 'active' : '';
+            $('.lista_paginacion').append('<li class="page-item ' + activer + '"><a class="pajaro">'+(i+1)+'</a></li>');
+        }
+    }
+        
+</script>

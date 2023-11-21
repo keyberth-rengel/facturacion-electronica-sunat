@@ -1,0 +1,11 @@
+pkcs12 -in certificado.p12 -clcerts -nokeys -out server.pem
+pkcs12 -in certificado.p12 -nocerts -nodes -out server_key.pem
+
+pkcs12 -in CERTIFICADO-3B1BCD0FC4A1E47B5C.pfx -clcerts -nokeys -out server.pem
+pkcs12 -in CERTIFICADO-3B1BCD0FC4A1E47B5C.pfx -nodes -out server_key.pem
+
+
+
+
+pkcs12 -in UzBsZVE4ZTliN1k0VTZTUg==.p12 -clcerts -nokeys -out server.pem
+pkcs12 -in UzBsZVE4ZTliN1k0VTZTUg==.p12 -nocerts -nodes -out server_key.pem
